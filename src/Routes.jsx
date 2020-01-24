@@ -1,10 +1,11 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import Users from "./Users";
 
 const Routes = () => (
   <Switch>
     <Route path="/users">
-      <h1>Users</h1>
+      <Users />
     </Route>
 
     <Route path="/scroll">
