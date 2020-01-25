@@ -5,9 +5,9 @@ import { selectUser, deselectUser } from "./redux/actions";
 
 const User = ({ email, picture, onClick }) => (
   <li className="m-1 p-1 border border-gray-800">
-    <button onClick={onClick}>
+    <button onClick={onClick} className="flex items-center">
       <img src={picture} alt="user" />
-      <div>{email}</div>
+      <div className="ml-1">{email}</div>
     </button>
   </li>
 );

@@ -17,7 +17,7 @@ function App() {
     <StoreProvider>
       <BrowserRouter>
         <div className="w-full min-h-screen flex flex-col">
-          <div className="h-20 flex justify-between items-center px-8 bg-gray-400">
+          <div className="h-20 flex flex-shrink-0 justify-between items-center px-8 bg-gray-400">
             <h1 className="text-2xl text-pink-600">CRA Sandbox</h1>
             <div>
               <FontAwesomeIcon icon={faCoffee} size="lg" />
@@ -35,7 +35,7 @@ function App() {
               />
             </div>
 
-            <div className="flex-1 bg-gray-100">
+            <div className="flex-1 bg-gray-100 overflow-scroll">
               <Routes />
             </div>
           </div>
