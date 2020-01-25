@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Users from "./Users";
+import Scroll from "./Scroll";
 
 const Routes = () => (
   <Switch>
@@ -9,7 +10,7 @@ const Routes = () => (
     </Route>
 
     <Route path="/scroll">
-      <h1>Scroll</h1>
+      <Scroll />
     </Route>
 
     <Route path="/" exact>
