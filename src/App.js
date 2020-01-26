@@ -6,7 +6,7 @@ import {
   faBicycle,
   faLifeRing
 } from "@fortawesome/free-solid-svg-icons";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 
 import StoreProvider from "./store/Provider";
 import Routes from "./Routes";
@@ -18,7 +18,10 @@ function App() {
       <BrowserRouter>
         <div className="w-full min-h-screen flex flex-col">
           <div className="h-20 flex flex-shrink-0 justify-between items-center px-8 bg-gray-400">
-            <h1 className="text-2xl text-pink-600">CRA Sandbox</h1>
+            <Link to="/" className="text-2xl text-pink-600">
+              CRA Sandbox
+            </Link>
+
             <div>
               <FontAwesomeIcon icon={faCoffee} size="lg" />
             </div>
