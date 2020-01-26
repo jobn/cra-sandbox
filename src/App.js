@@ -35,7 +35,7 @@ function App() {
               />
             </div>
 
-            <div className="flex-1 bg-gray-100 overflow-scroll">
+            <div className="flex-1 bg-gray-100">
               <Routes />
             </div>
           </div>
