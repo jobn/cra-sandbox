@@ -2,6 +2,8 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Users from "./Users";
 import Scroll from "./Scroll";
+import Home from "./Home";
+import { AuthenticationForm } from "./authentication";
 
 const Routes = () => (
   <Switch>
@@ -13,10 +15,12 @@ const Routes = () => (
       <Scroll />
     </Route>
 
+    <Route path="/signin">
+      <AuthenticationForm />
+    </Route>
+
     <Route path="/" exact>
-      <div className="w-full h-full flex items-center justify-center text-4xl">
-        Welcome
-      </div>
+      <Home />
     </Route>
 
     <Route>
