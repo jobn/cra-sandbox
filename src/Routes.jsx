@@ -3,25 +3,14 @@ import { Switch, Route } from "react-router-dom";
 import Users from "./Users";
 import Scroll from "./Scroll";
 import Home from "./Home";
-import { AuthenticationForm } from "./authentication";
+import { AuthenticationForm, PrivateRoute } from "./authentication";
 
 const Routes = () => (
   <Switch>
-    <Route path="/users">
-      <Users />
-    </Route>
-
-    <Route path="/scroll">
-      <Scroll />
-    </Route>
-
-    <Route path="/signin">
-      <AuthenticationForm />
-    </Route>
-
-    <Route path="/" exact>
-      <Home />
-    </Route>
+    <PrivateRoute path="/users" component={Users} />
+    <Route path="/scroll" component={Scroll} />
+    <Route path="/signin" component={AuthenticationForm} />
+    <Route path="/" exact component={Home} />
 
     <Route>
       <div className="w-full h-full flex items-center justify-center text-4xl">

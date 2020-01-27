@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { Context } from "./Container";
 
-const Form = () => {
+const Form = props => {
   const { authenticated, requestError, signin } = React.useContext(Context);
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -12,8 +12,9 @@ const Form = () => {
     signin(username, password);
   };
 
+  const { from } = props.location.state || { from: { pathname: "/" } };
   if (authenticated) {
-    return <Redirect to="/users" />;
+    return <Redirect to={from} />;
   }
 
   return (
