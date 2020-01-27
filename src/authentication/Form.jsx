@@ -3,11 +3,7 @@ import { Redirect } from "react-router-dom";
 import { Context } from "./Container";
 
 const Form = () => {
-  const {
-    authenticated,
-    authenticationRequestError,
-    signin
-  } = React.useContext(Context);
+  const { authenticated, requestError, signin } = React.useContext(Context);
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -44,7 +40,7 @@ const Form = () => {
         />
       </label>
 
-      {authenticationRequestError && (
+      {requestError && (
         <div className="color-red mb-2">Something went wrong</div>
       )}
 

@@ -6,47 +6,40 @@ const Context = React.createContext();
 
 const Container = ({ children }) => {
   const [authenticated, setAuthenticated] = React.useState(false);
-  const [
-    authenticationRequestError,
-    setAuthenticationRequestError
-  ] = React.useState(false);
+  const [requestError, setRequestError] = React.useState(false);
 
-  const signin = React.useCallback(
-    (username, password) => {
-      setAuthenticationRequestError(false);
-      api.authenticate(username, password).then(
-        response => {
-          setAuthenticated(true);
-          setToken(response.token);
-        },
-        () => {
-          setAuthenticated(false);
-          setAuthenticationRequestError(true);
-          removeToken();
-        }
-      );
-    },
-    [setAuthenticated, setAuthenticationRequestError]
-  );
+  const signin = React.useCallback((username, password) => {
+    setRequestError(false);
+    api.authenticate(username, password).then(
+      response => {
+        setAuthenticated(true);
+        setToken(response.token);
+      },
+      () => {
+        setAuthenticated(false);
+        setRequestError(true);
+        removeToken();
+      }
+    );
+  }, []);
 
   const signout = React.useCallback(() => {
     setAuthenticated(false);
-    setAuthenticationRequestError(false);
+    setRequestError(false);
     removeToken();
-  }, [setAuthenticated, setAuthenticationRequestError]);
+  }, []);
 
   const value = React.useMemo(
     () => ({
       signin,
       signout,
       authenticated,
-      authenticationRequestError
+      requestError
     }),
-    [signin, signout, authenticated, authenticationRequestError]
+    [signin, signout, authenticated, requestError]
   );
 
   React.useEffect(() => {
-    console.log("validation");
     api.validateToken(getToken()).then(
       () => setAuthenticated(true),
       () => setAuthenticated(false)
