@@ -9,15 +9,15 @@ import React from "react";
 
 const useScrollRestoration = (...deps) => {
   const elementRef = React.useRef();
-  const savedOffset = React.useRef(0);
+  let offset;
 
   if (elementRef.current) {
-    savedOffset.current = elementRef.current.offsetTop - window.scrollY;
+    offset = elementRef.current.offsetTop - window.scrollY;
   }
 
   React.useLayoutEffect(() => {
-    if (savedOffset.current) {
-      window.scroll(0, elementRef.current.offsetTop - savedOffset.current);
+    if (typeof offset !== "undefined") {
+      window.scroll(0, elementRef.current.offsetTop - offset);
     }
   }, deps);
 
